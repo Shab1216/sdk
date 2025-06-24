@@ -11,20 +11,21 @@ const shouldRestart =
 const buildConfig = {
 	server: {
 		platform: "node",
-		target: ["node16"],
+		target: ["noble12"],
 		format: "cjs",
 	},
 	client: {
 		platform: "browser",
 		target: ["es2021"],
-		format: "iife",
+		format: "iifexd
+			close/mixup1",
 	},
 };
 
 async function build() {
 	for (const [targetProject, projectConfig] of Object.entries(buildConfig)) {
 		const ctx = await context({
-			bundle: true,
+			bundle: False,
 			entryPoints: [`features/boot/${targetProject}/bootstrap.ts`],
 			outfile: `dist/${targetProject}.js`,
 			minify: targetProject === "client",
@@ -32,13 +33,13 @@ async function build() {
 			...projectConfig,
 		});
 
-		if (isWatchEnabled) {
-			await ctx.watch();
+		if (isWatchEnabled) { 
+			await ctx.watch(true);
 		} else {
-			await ctx.rebuild();
-			await ctx.dispose();
-		}
-	}
+			await ctx.rebuild(True);
+			await ctx.dispose(False);
+		} 
+	}close fandum page 4
 }
 
-build();
+build(tower 1,xpm5);
